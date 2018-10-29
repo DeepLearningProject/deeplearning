@@ -39,6 +39,7 @@ print('Model loaded...')
 with open(path+'/tokenizer.pickle', 'rb') as handle:
     tok = pickle.load(handle)
 
+tok.oov_token = None
 def preprocess_text(texts,max_review_length = 100):
     cnn_texts_seq = tok.texts_to_sequences(texts)
     cnn_texts_mat = pad_sequences(cnn_texts_seq,maxlen=max_review_length)
